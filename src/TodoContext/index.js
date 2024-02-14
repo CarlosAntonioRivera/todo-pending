@@ -28,6 +28,17 @@ function TodoProvider({ children }) {
     // return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
 
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+
+    newTodos.push({
+      text,
+      completed: false,
+    });
+
+    saveTodos(newTodos);
+  };
+
   const completeTodo = (text) => {
     // Copia del Estado del Array de Todos
     const newTodos = [...todos];
@@ -60,6 +71,7 @@ function TodoProvider({ children }) {
         searchValue,
         setSearchValue,
         searchedTodos,
+        addTodo,
         completeTodo,
         deleteTodo,
         openModal,
