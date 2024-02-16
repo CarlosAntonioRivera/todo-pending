@@ -1,11 +1,8 @@
-.TodoCounter {
+.LoadingTodo-container-counter {
   font-size: 24px;
   text-align: center;
   margin: 0;
   padding: 35px;
   font-weight: normal;
-}
-
-.TodoCounter span {
-  font-weight: bold;
+  position: relative;
 }

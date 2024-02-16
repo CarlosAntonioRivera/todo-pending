@@ -1,9 +1,21 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #475569;
-  color: #fef2f2;
+  background: #172554;
+  color: #f0f9ff;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+}
+.TodoAppContainer {
+  display: flex;
+  justify-content: center;
+}
+.TodoContainer {
+  width: 800px;
 }
 
 #root {

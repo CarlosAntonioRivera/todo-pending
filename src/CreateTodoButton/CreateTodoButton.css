@@ -8,17 +8,17 @@
   bottom: 24px;
   right: 24px;
   font-weight: bold;
+  text-align: center;
   color: #fef2f2;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 64px;
-  width: 64px;
+  width: 70px;
+  height: 70px;
   z-index: 1;
-  transform: rotate(0);
-  transition: 0.3s ease;
+  transition: 0.1s;
 }
 
 .CreateTodoButton:hover {
-  transform: rotate(224deg);
+  font-size: 80px;
 }

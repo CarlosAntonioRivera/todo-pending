@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 24px;
-  border-radius: 10px;
+  margin: 24px 0;
+  border-radius: 1rem;
   padding: 12px 0;
 }
 
@@ -34,18 +34,13 @@
 
 .LoadingTodo-deleteIcon {
   position: absolute;
-  top: -24px;
-  right: 0;
+  right: 12px;
 }
 
 .LoadingTodo-container,
 .LoadingTodo-completeIcon,
 .LoadingTodo-deleteIcon {
-  background: linear-gradient(
-    90deg,
-    rgba(250, 250, 250, 1),
-    rgb(200, 199, 199)
-  );
+  background: linear-gradient(90deg, rgba(250, 250, 250, 1), rgb(94, 93, 93));
   background-size: 400% 400%;
   animation: loadingAnimation 3s ease-in-out infinite;
 }

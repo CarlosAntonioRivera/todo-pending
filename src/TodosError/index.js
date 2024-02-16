@@ -1,8 +1,8 @@
 import React from 'react';
-// import './TodosError.css';
+import './TodosError.css';
 
 function TodosError() {
-  return <p>Error</p>;
+  return <p className='TodoError'>¡Oh! A ocurrido un error</p>;
 }
 
 export { TodosError };

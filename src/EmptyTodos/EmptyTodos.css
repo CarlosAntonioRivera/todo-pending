@@ -1,11 +1,7 @@
-.TodoCounter {
+.EmptyTodos {
   font-size: 24px;
   text-align: center;
   margin: 0;
-  padding: 35px;
+  padding: 100px;
   font-weight: normal;
-}
-
-.TodoCounter span {
-  font-weight: bold;
 }

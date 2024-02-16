@@ -10,11 +10,15 @@ import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
 import { TodoContext } from '../TodoContext';
 import { TodoForm } from '../TodoForm';
+import { TodoSearchLoading } from '../TodoSearchLoading';
+import { TodoCounterLoading } from '../TodoCounterLoading';
+import { TodosNotFound } from '../TodosNotFound';
 
 function AppUI() {
   const {
     loading,
     error,
+    totalTodos,
     searchedTodos,
     completeTodo,
     deleteTodo,
@@ -24,42 +28,63 @@ function AppUI() {
 
   return (
     <>
-      <TodoCounter />
+      <div className='TodoAppContainer'>
+        <div className='TodoContainer'>
+          <h1>¡Bienvenido!</h1>
 
-      <TodoSearch />
+          {loading ? (
+            <>
+              <TodoCounterLoading />
 
-      <TodoList>
-        {loading && (
-          <>
-            <TodosLoading />
-            <TodosLoading />
-          </>
-        )}
-        {error && <TodosError />}
-        {!loading && searchedTodos.length === 0 && <EmptyTodos />}
+              <TodoSearchLoading />
+            </>
+          ) : (
+            <>
+              <TodoCounter />
 
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => {
-              completeTodo(todo.text);
-            }}
-            onDelete={() => {
-              deleteTodo(todo.text);
-            }}
-          />
-        ))}
-      </TodoList>
+              <TodoSearch />
 
-      <CreateTodoButton setOpenModal={setOpenModal} />
+              <CreateTodoButton setOpenModal={setOpenModal} />
 
-      {openModal && (
-        <Modal>
-          <TodoForm />
-        </Modal>
-      )}
+              {openModal && (
+                <Modal>
+                  <TodoForm />
+                </Modal>
+              )}
+            </>
+          )}
+
+          <TodoList>
+            {loading && (
+              <>
+                <TodosLoading />
+                <TodosLoading />
+                <TodosLoading />
+                <TodosLoading />
+              </>
+            )}
+            {error && <TodosError />}
+            {!loading && totalTodos === 0 && <EmptyTodos />}
+            {!loading && searchedTodos.length === 0 && totalTodos > 0 && (
+              <TodosNotFound />
+            )}
+
+            {searchedTodos.map((todo) => (
+              <TodoItem
+                key={todo.text}
+                text={todo.text}
+                completed={todo.completed}
+                onComplete={() => {
+                  completeTodo(todo.text);
+                }}
+                onDelete={() => {
+                  deleteTodo(todo.text);
+                }}
+              />
+            ))}
+          </TodoList>
+        </div>
+      </div>
     </>
   );
 }
